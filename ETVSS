@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcolatore di Punteggio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+        }
+        input {
+            display: block;
+            margin-bottom: 10px;
+            padding: 10px;
+            width: 100%;
+        }
+        button {
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #risultato {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Calcolatore di Punteggio</h1>
+    <form id="form-punteggio">
+        <label for="variabile1">Inserisci Variabile 1:</label>
+        <input type="number" id="variabile1" placeholder="Inserisci Variabile 1" required>
+
+        <label for="variabile2">Inserisci Variabile 2:</label>
+        <input type="number" id="variabile2" placeholder="Inserisci Variabile 2" required>
+
+        <button type="submit">Calcola Punteggio</button>
+    </form>
+
+    <div id="risultato"></div>
+</div>
+
+<script>
+    document.getElementById('form-punteggio').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Ottieni i valori dalle caselle di input
+        const variabile1 = parseFloat(document.getElementById('variabile1').value);
+        const variabile2 = parseFloat(document.getElementById('variabile2').value);
+
+        // Calcola il punteggio con una semplice formula
+        const punteggio = (variabile1 * 0.5) + (variabile2 * 0.3);
+
+        // Mostra il risultato nella pagina
+        document.getElementById('risultato').innerText = 'Il tuo punteggio è: ' + punteggio.toFixed(2);
+    });
+</script>
+
+</body>
+</html>
